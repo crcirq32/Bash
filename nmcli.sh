@@ -28,14 +28,14 @@ read pw
 # Create Wifi connection #
 ##############################
 
-#nmcli c add type wifi con-name ${name} ifname ${wifi} ssid ${ssid}
-#echo $?
+nmcli c add type wifi con-name ${name} ifname ${wifi} ssid ${ssid}
+echo $?
 
 # Modify connect to add WPA-password #
 ######################################
 
-#nmcli con modify ${name} wifi-sec.key-mgmt wpa-psk
-#echo $?
+nmcli con modify ${name} wifi-sec.key-mgmt wpa-psk
+echo $?
 
 # Create the location for password file #
 #########################################
@@ -47,10 +47,10 @@ read pw
 # locate the password file #
 ############################
 
-#nmcli --ask con modify ${name} wifi-sec.psk ${pw} 
-#echo $?
+nmcli --ask con modify ${name} wifi-sec.psk ${pw} 
+echo $?
 
 # Turn the connection on #
 ##########################
 
-#nmcli con up ${name} 
+nmcli con up ${name} 
