@@ -27,8 +27,8 @@
 #sudo systemctl start clamav-freshclam
 
 # When Freshclam is finished, make a directory #
-# Start the scanning directory "/"             #
 # Create a directory to move suspect files     #
+# Start scanning directory "/"             #
 ################################################
 
 #sudo mkdir /home/ubuntu/Desktop/Clamscan
