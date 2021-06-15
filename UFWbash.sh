@@ -6,13 +6,11 @@ sudo ufw enable
 
 # Uncomment below to reject all traffic #
 #########################################
- 
 #sudo ufw default reject
 
-# Most Suspect Ports & description #
-# Change "deny" to "allow" if needed    # 
-####################################
-
+# Most Suspect Ports & description    #
+# Change "deny" to "allow" if needed  # 
+#######################################
 ufw deny 8  >/dev/null #Unassigned
 ufw deny 7 >/dev/null #Echo
 ufw deny 19 >/dev/null #Chargen
@@ -62,7 +60,5 @@ ufw deny 51515 >/dev/null #Microsoft Operations Manager 2000
 
 # Display rules & restart to take effect #
 ##########################################
-
-ufwstatus numbered
 systemctl restart ufw
-
+ufw status numbered
