@@ -2,7 +2,7 @@
 
 #CONTAINER=$(docker container list -a | awk '{print $14}')
 
-#Start the download of the docker container
+#Start the download of the ansible container
 #sudo docker run -ti cyberxsecurity/ansible bash
 
 #display known containers
