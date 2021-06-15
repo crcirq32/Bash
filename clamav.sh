@@ -1,36 +1,40 @@
 #!/bin/bash
 
-# Install ClamAV #
-##################
+# Check if script was run as root. Exit if false. #
+###################################################
+if [ $UID -ne 0 ]
+then
+  echo "Please run this script with sudo."
+  exit
+fi
 
-#sudo apt-get update
-#sudo add-apt-repository universe
-#sudo apt-get install clamav clamav-daemon
+# Install ClamAV via apt-get #
+##############################
+#apt-get update
+#add-apt-repository universe
+#apt-get install clamav clamav-daemon
 #clamscan --version
 
-#Freshclam is started automatically #
-#####################################
-
+#Freshclam starts auto - reset it #
+###################################
 #sudo systemctl stop clamav-freshclam
 #sudo freshclam
 
 # Download the daily update #
 #############################
-
-#daily=$(wget https://database.clamav.net/daily.cvd)
+#daily=$(wget https://database.clamav.net/daily.cvd -p /tmp/)
 #touch /var/lib/clamav/daily.cvd
-#sudo cp -rf ${daily} /var/lib/clamav/daily.cvd
+#cp ${daily} /var/lib/clamav/daily.cvd
 
 # Start Freshclam # 
 ###################
-
-#sudo systemctl start clamav-freshclam
+#systemctl start clamav-freshclam
 
 # When Freshclam is finished, make a directory #
 # Create a directory to move suspect files     #
-# Start scanning directory "/"             #
+# Start scanning directory "/" & -runs in bg   #
 ################################################
 
-#sudo mkdir /home/ubuntu/Desktop/Clamscan
-#sudo clamscan -r --move=/home/ubuntu/Desktop/Clamscan / &
+#mkdir /home/ubuntu/Desktop/Clamscan
+#clamscan -r --move=/home/ubuntu/Desktop/Clamscan / &
 
