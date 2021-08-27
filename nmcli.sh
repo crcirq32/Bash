@@ -1,45 +1,48 @@
 #!/bin/sh
 
 # Create connection   #
-# echo $?=0  success  #
 #######################
 
-echo "Connection Name"
-read name
+#echo "Connection Name"
+#read name
 
-echo "SSID Name"
-read ssid 
+#echo "SSID Name"
+#read ssid 
 
 # "ip a" display network name #
-# Get connection info         #
+#     Get connection info     #
 ###############################
 
-ip a
-echo "WF name"
-read wifi
+#ip a
+#echo "WF name"
+#read wifi
 
-echo "Password for WF"
-read pw
+#echo "Password for WF"
+#read pw
 
-#Display location wifi #
+# Display location wifi #
 ########################
 #nmcli dev wifi
 
 # Create Wifi connection #
 ##########################
-nmcli c add type wifi con-name ${name} ifname ${wifi} ssid ${ssid}
-echo $?
+
+#nmcli c add type wifi con-name ${name} ifname ${wifi} ssid ${ssid}
+#echo $?
 
 # Modify connect to add WPA-password #
 ######################################
-nmcli con modify ${name} wifi-sec.key-mgmt wpa-psk
-echo $?
+
+#nmcli con modify ${name} wifi-sec.key-mgmt wpa-psk
+#echo $?
 
 # add password  #
 #################
-nmcli --ask con modify ${name} wifi-sec.psk ${pw} 
-echo $?
+
+#nmcli --ask con modify ${name} wifi-sec.psk ${pw} 
+#echo $?
 
 # Turn the connection on #
 ##########################
-nmcli con up ${name} 
+
+#nmcli con up ${name} 
