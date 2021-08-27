@@ -2,11 +2,11 @@
 
 # Check if script was run as root. Exit if false. #
 ###################################################
-if [ $UID -ne 0 ]
-then
-  echo "Please run this script with sudo."
-  exit
-fi
+#if [ $UID -ne 0 ]
+#then
+#  echo "Please run this script with sudo."
+#  exit
+#fi
 
 # Install ClamAV via apt-get #
 ##############################
@@ -31,8 +31,8 @@ fi
 #systemctl start clamav-freshclam
 
 # When Freshclam is finished, make a directory #
-# Create a directory to move suspect files     #
-# Start scanning directory "/" & -runs in bg   #
+# Create directory & move suspect files        #
+# Start scanning directory "/"                 #
 ################################################
 
 #mkdir /home/ubuntu/Desktop/Clamscan
