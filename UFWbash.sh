@@ -60,5 +60,6 @@ ufw deny 51515  >/dev/null #Microsoft Operations Manager 2000
 
 # Display rules & restart to take effect #
 ##########################################
+ufw reload
 systemctl restart ufw
 ufw status numbered
