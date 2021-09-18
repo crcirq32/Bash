@@ -117,11 +117,8 @@ dpkg -i code_1.60.1-1631294805_amd64.deb
 #Install Xdebug on Kali:
 #sudo apt install php-xdebug -y
 
-#navigate to Php config file for Apache:
-#cd /etc/php/7.4/apache2
-
 #Add following to bottom of php.ini
-#sudo printf '[xdebug]\nxdebug.mode = debug\nxdebug.start_with_request = yes\nxdebug.idekey = VSCODE\nxdebug.client_port = 9003\nxdebug.client_host = "127.0.0.1"\nxdebug.discover_client_host  = 1\nxdebug.log="/tmp/xdebug.log"\nxdebug.cli_color = 1OA\n' >> php.ini
+#sudo printf '[xdebug]\nxdebug.mode = debug\nxdebug.start_with_request = yes\nxdebug.idekey = VSCODE\nxdebug.client_port = 9003\nxdebug.client_host = "127.0.0.1"\nxdebug.discover_client_host  = 1\nxdebug.log="/tmp/xdebug.log"\nxdebug.cli_color = 1OA\n' >> /etc/php/7.4/apache2/php.ini
 
 #if does not allow:
 #sudo chmod 777 php.ini
