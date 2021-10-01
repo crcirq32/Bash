@@ -6,7 +6,6 @@
 #            Validity of scripts are questionable:           #
 #                       Use at own risk                      #
 #               do not use for illegal activity              #
-#             Written by CRC@github.com/crcirq32             #
 ##############################################################
 
 # awk #
