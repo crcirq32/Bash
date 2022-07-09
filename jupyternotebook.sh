@@ -1,19 +1,21 @@
 #!/bin/bash
 
-#run as sudo
-if [ $UID -ne 0 ]
-then
-  echo "Run as sudo."
-  exit
-fi
+#Mkdir and cd
+sudo mkdir -p ~/Desktop/notebook && cd ~/Desktop/notebook 
 
-#install repo's
-apt-get install python3-pip python3-dev && -H pip3 install --upgrade pip && -H pip3 install virtualenv && 
+#update
+sudo apt-get update && sudo apt-get -y upgrade &
 
+echo $?
 sleep 10
 
-#Mkdir and cd
-mkdir -p ~/Desktop/notebook && cd ~/Desktop/notebook
+#install repo's
+sudo apt-get install python3-pip python3-dev -y \
+&& sudo -H pip3 install --upgrade pip \
+&& sudo -H pip3 install virtualenv 
+
+echo $?
+sleep 10
 
 #Start env && activate env
 virtualenv jupyterenv && source jupyterenv/bin/activate 
@@ -24,4 +26,4 @@ pip install numpy matplotlib jupyter scipy requests graphviz sklearn pandas
 sleep 10
 
 #start notebook
-jupyter notebook
+jupyter notebook --ip="127.0.0.1" --port=8888 --allow-root
