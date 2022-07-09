@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #Mkdir and cd
-sudo mkdir -p ~/Desktop/notebook && cd ~/Desktop/notebook 
+sudo mkdir -p ~/Desktop/notebook && sudo chmod 777 ~/Desktop/notebook && cd ~/Desktop/notebook 
 
 #update
 sudo apt-get update && sudo apt-get -y upgrade &
