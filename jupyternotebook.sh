@@ -8,7 +8,7 @@ sudo apt-get update -y && sudo apt-get -y upgrade &
 
 sleep 10
 
-sudo apt-get install python3-pip python3-dev && sudo -H pip3 install --upgrade pip \
+sudo apt-get install python3-pip python3-dev -y && sudo -H pip3 install --upgrade pip -y \
 && sudo -H pip3 install virtualenv \
 && virtualenv jupyterenv && source jupyterenv/bin/activate && \
 pip install numpy matplotlib jupyter scipy requests graphviz
