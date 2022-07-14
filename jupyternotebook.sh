@@ -8,8 +8,8 @@ sudo apt-get update -y && sudo apt-get -y upgrade &
 
 sleep 10
 
-sudo apt-get install python3-pip python3-dev -y && sudo -H pip3 install --upgrade pip -y \
-&& sudo -H pip3 install virtualenv \
+sudo apt-get install python3-pip python3-dev -y && -H pip3 install --upgrade pip -y \
+&& -H pip3 install virtualenv \
 && virtualenv jupyterenv && source jupyterenv/bin/activate && \
 pip install numpy matplotlib jupyter scipy requests graphviz
 
@@ -17,4 +17,4 @@ echo $?
 sleep 15
 
 #start notebook
-jupyter notebook --ip="127.0.0.1" --port=8888 --allow-root
+jupyter notebook --ip="127.0.0.1" --port=8888
