@@ -32,6 +32,8 @@ chill=(wait $finpid)
 
 do I add a recursive file? lol @ /tmp/. programming should be easier.
 
+TODO:logic is there, just gotta make it work.
+
 
 #begin the grep
 grep21=(grep "21/tcp /tmp/$targettip.txt")
