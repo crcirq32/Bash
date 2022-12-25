@@ -35,19 +35,71 @@ echo $?
 python3 nettacker.py --start-api #open @ 127.0.0.1:5000
 echo $?
 
-#TODO: Better IF statement for port 80
-#run dirbuster on port 80
-scanm=$(nmap -sS -p 80 -T4 ${IP} > /tmp/port80.txt)
-dobuster=$(gobuster dir -q --url http://${IP} -w /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-medium.txt -t 50 > /tmp/${Today}.Gobuster.${IP}.txt)
-${scanm}
-if [ ${scanm} -e  0 ];
-  then ${dobuster}
+#!/bin/bash
+
+#check sudo
+if [ $UID -ne 0 ]
+then
+  echo "Run as sudo."
   exit
+fi
+
+#which ip?
+echo -e "Domain? \n[+]Syntax:: "10.10.10.1""
+read targetip 
+
+#var
+#Create list to run through all these on loop to check if they are running. array of exe variables?
+line={
+nmappp=(nmap -sC -sV -n -T4 -oN /tmp/main.$targetip.txt ${targetip})
+nmapu=(nmap -su -T4 -oN /tmp/udp.$textip.txt ${targetip})
+
+#begin the grep
+grep21=(grep "21/tcp /tmp/$targettip.txt")
+grep53=(grep "53/tcp /tmp/$targettip.txt")
+grep3306=(grep "3306/tcp /tmp/$targettip.txt")
+
+#port 80
+dirbust=(gobuster --url http://$ip --wordlist=/usr/share/wordlists/Seclist/DNS/Discovery/ &)
+feroxrust=(feroxbuster --url http://$ip --wordlist=/usr/share/wordlists/Seclist/DNS/Discovery/ &)
+godust=(gobuster --url http://$ip --wordlist=/usr/share/wordlists/Seclist/DNS/Discovery/ &)
+fuffyfuf=(ffuf -u http://$targetip.htb/FUZZ -w /usr/share/wordlists/SecLists/Discovery/Web-Content/raft-large-words-lowercase.txt | grep "Status: 200\|Status: 301")
+
+#port 3306
+mysqqql=(mysql -u root -p -h $targetip 2>/dev/null >> /tmp/mysql.$iptarget.ip.txt)
+
+}
+while i in line = read ${line}; do
+
+if [$(nmapeight) -e 0]; 
+        then
+                ${dirbust} >> /tmp/dir.$targetip.txt &
+                ${feroxbuster} >> /tmp/dir.$targetip.txt &
+                ${gobuster} >> /tmp/dir.$targetip.txt &
+                ${fuffyfuf} >> /tmp/dir.$targetip.txt &
+fi
+
+if [$(grep21) -e 0]; 
+        then
+        ftp $ip >> /tmp/ftp.$targetip.txt
+fi
+
+if [$(grep53) -e 0]; 
+        then
+        nslookup $ip >> /tmp/nsup.$targetip.txt &
+        dnsrecon $ip >> /tmp/nsup.$targetip.txt &
+        nslookup $ip >> /tmp/nsup.$targetip.txt &
+        nslookup $ip >> /tmp/nsup.$targetip.txt &
+fi
+
+if [$(grep3306) -e 0]; 
+        then
+                ${mysqqql}
 fi
 echo $?
 
 #Open output to view
-vim -p /tmp/${Today}.*
+vim -p /tmp/*$iptarget.txt
 echo $?
 
 #cleanup
