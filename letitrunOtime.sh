@@ -18,9 +18,9 @@ nmappp=(nmap -sC -sV -n -T4 -oN /tmp/main.$targetip.txt ${targetip})
 nmapu=(nmap -su -T4 -oN /tmp/udp.$textip.txt ${targetip})
 
 #begin the grep
-grep21=(grep "21/tcp /tmp/$targettip.txt")
-grep53=(grep "53/tcp /tmp/$targettip.txt")
-grep3306=(grep "3306/tcp /tmp/$targettip.txt")
+grep21=(grep "21/tcp /tmp/${targettip}.txt")
+grep53=(grep "53/tcp /tmp/${targettip}.txt")
+grep3306=(grep "3306/tcp /tmp/${targettip}.txt")
 
 #port 80
 dirbust=(gobuster --url http://$ip --wordlist=/usr/share/wordlists/Seclist/DNS/Discovery/ &)
