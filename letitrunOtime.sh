@@ -24,11 +24,12 @@ echo -e "what kind of password we working with? [+]Syntax:: heavysecurity101"
 read wapass
 
 mkdir -p /tmp/scan/
+locale=(/tmp/scan/)
 
 #Create list to run through all these on loop to check if they are running. array of exe variables?
-nmappp=(nmap -sC -sV -n -T4 -oN /tmp/scan/main.txt ${targetip})
-nmapeight=(nmap --script http-* -oN /tmp/scan/80map.txt ${targetip})
-nmapu=(nmap -sU -T4 -oN /tmp/scan/udp.txt ${targetip})
+nmappp=(nmap -sC -sV -n -T4 -oN ${locale}.main ${targetip})
+nmapeight=(nmap --script http-* -oN ${locale}.80map ${targetip})
+nmapu=(nmap -sU -T4 -oN ${locale}.udp ${targetip})
 finpid=(echo $$) # echo spawn pid
 chill=(wait $finpid) # allow spawned pid to finish
 
@@ -36,64 +37,52 @@ chill=(wait $finpid) # allow spawned pid to finish
 TODO: Make it work. 
 
 #begin the grep
-grep21=(grep "21/tcp" /tmp/scan/ftp.txt")
-grep53=(grep "53/tcp" /tmp/scan/${udp,dns}.txt")
-grep3306=(grep "3306/tcp" /tmp/scan/mysql.txt")
-grep80=(grep "80/tcp" /tmp/scan/80map.txt")
+grep21=(grep "21/tcp" ${locale}.ftp.txt)
+grep53=(grep "53/tcp" ${locale}.${udp,dns}.txt)
+grep3306=(grep "3306/tcp" ${locale}.mysql.txt)
+grep80=(grep "80/tcp" ${locale}.80map.txt)
 
 #port 80
-enum80=(while true; do read ${listof80};
+enum80=(read line ; do echo ${line}; exe ${line})
 
-line=(
+line=(${dirbust}, ${feroxbuster},${gobuster},${chill},${fuffyfuf})
 dirbust=(gobuster --url http://$targetip --wordlist=/usr/share/wordlists/Seclist/DNS/Discovery/; $finpid &)
 feroxrust=(feroxbuster --url http://$targetip --wordlist=/usr/share/wordlists/Seclist/DNS/Discovery/; $finpid &)
 godust=(gobuster --url http://$targetip --wordlist=/usr/share/wordlists/Seclist/DNS/Discovery/; $finpid &)
-fuffyfuf=(ffuf -u http://$targetip.htb/FUZZ -w /usr/share/wordlists/SecLists/Discovery/Web-Content/raft-large-words-lowercase.txt; $finpid & | grep "Status: 200" \| "Status: 301")
-)
+fuffyfuf=(ffuf -u http://$targetip.htb/FUZZ -w /usr/share/wordlists/SecLists/Discovery/Web-Content/raft-large-words-lowercase.txt; $finpid & | grep "Status: 200" \| "Status: 301"))
 #port 3306
 mysqqql=(mysql -u $wauser -p -h $targetip 2>/dev/null >> /tmp/mysql.$targetiptarget.ip.txt)
 
-while i in line = [${line} e 0]; do
+while read line [${line} e 0]; do
 if [$(nmapeight) -e 0]; 
         then
-          ${dirbust} >> /tmp/dir.$targetip.txt &${finpid} 
+          ${dirbust} >> ${locale}.dir ${finpid}  &
           ${chill} 
-          ${feroxbuster} >> /tmp/dir.$targetip.txt ${finpid} &
+          ${feroxbuster} >> ${locale}.dir ${finpid} &
           ${chill} 
-          ${gobuster} >> /tmp/dir.$targetip.txt ${finpid} &
+          ${gobuster} >> ${locale}.dir ${finpid} &
           ${chill} 
-          ${fuffyfuf} >> /tmp/dir.$targetip.txt ${finpid} & 
+          ${fuffyfuf} >> ${locale}.dir ${finpid} & 
           ${chill} 
 fi
-if [$(nmap) -e 0]; 
-        then
-          ${dirbust} >> /tmp/dir.$targetip.txt &
-          ${chill} 
-          ${feroxbuster} >> /tmp/dir.$targetip.txt &
-          ${chill} 
-          ${gobuster} >> /tmp/dir.$targetip.txt &
-          ${chill} 
-          
+
 if [$(grep21) -e 0]; 
         then
-        ftp $targetip >> /tmp/ftp.$targetip.txt
+        ftp $targetip >> ${locale}.ftp
          ${chill}
 fi
 
 if [$(grep53) -e 0]; 
         then
-        nslookup $targetip >> /tmp/nsup.$targetip.txt &
-         ${chill}
-        dnsrecon $targetip >> /tmp/nsup.$targetip.txt &
-         ${chill}
-        dig version.bind CHAOS TXT >> $targetip.txt &
-         ${chill)
-        dig axfr $targetip >> $targetip.txt &
-         ${chill}
+        nslookup $targetip >> ${locale}.nsup &
+        dnsrecon $targetip >> ${locale}.nsup &
+        dig version.bind CHAOS TXT >> ${locale}.bindscan &
+        dig axfr $targetip >> ${locale}.dig &
+        ${chill}
 fi
 
 if [$(grep3306) -e 0]; 
         then
-                ${mysqqql}
+                ${mysqqql} >> ${locale}.mysql
 fi
-                                   
+                                  
