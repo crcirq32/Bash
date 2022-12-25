@@ -21,28 +21,28 @@ read wauser
 
 #you got a password?
 echo -e "what kind of password we working with? [+]Syntax:: heavysecurity101"
-read wauser
+read wapass
+
+mkdir -p /tmp/scan/
 
 #Create list to run through all these on loop to check if they are running. array of exe variables?
-nmappp=(nmap -sC -sV -n -T4 -oN /tmp/main.$targetip.txt ${targetip})
-nmapeight=(nmap /tmp/80map.$targetip.txt ${targetip})
-nmapu=(nmap -su -T4 -oN /tmp/udp.$textip.txt ${targetip})
-finpid=(echo $$)
-chill=(wait $finpid)
+nmappp=(nmap -sC -sV -n -T4 -oN /tmp/scan/main.txt ${targetip})
+nmapeight=(nmap --script http-* -oN /tmp/scan/80map.txt ${targetip})
+nmapu=(nmap -sU -T4 -oN /tmp/scan/udp.txt ${targetip})
+finpid=(echo $$) # echo spawn pid
+chill=(wait $finpid) # allow spawned pid to finish
 
-do I add a recursive file? lol @ /tmp/. programming should be easier.
 
-TODO:logic is there, just gotta make it work.
-
+TODO: Make it work. 
 
 #begin the grep
-grep21=(grep "21/tcp /tmp/$targettip.txt")
-grep53=(grep "53/tcp /tmp/$targettip.txt")
-grep3306=(grep "3306/tcp /tmp/$targettip.txt")
-grep80=(grep "80/tcp /tmp/$targettip.txt")
+grep21=(grep "21/tcp" /tmp/scan/ftp.txt")
+grep53=(grep "53/tcp" /tmp/scan/${udp,dns}.txt")
+grep3306=(grep "3306/tcp" /tmp/scan/mysql.txt")
+grep80=(grep "80/tcp" /tmp/scan/80map.txt")
 
 #port 80
-grep80=(while true; do read ${listof80};
+enum80=(while true; do read ${listof80};
 
 line=(
 dirbust=(gobuster --url http://$targetip --wordlist=/usr/share/wordlists/Seclist/DNS/Discovery/; $finpid &)
