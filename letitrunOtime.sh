@@ -2,7 +2,7 @@
 
 #expected::
 # git clone https://github.com/danielmiessler/SecLists.git -o /usr/share/wordlists/
-#
+# sudo apt-get install feroxbuster gobuster dirbuster
 
 #check sudo
 if [ $UID -ne 0 ]
@@ -46,10 +46,10 @@ grep80=(grep "80/tcp" ${locale}.80map.txt)
 enum80=(read line ; do echo ${line}; exe ${line})
 
 line=(${dirbust}, ${feroxbuster},${gobuster},${chill},${fuffyfuf})
-dirbust=(gobuster --url http://$targetip --wordlist=/usr/share/wordlists/Seclist/DNS/Discovery/; $finpid &)
-feroxrust=(feroxbuster --url http://$targetip --wordlist=/usr/share/wordlists/Seclist/DNS/Discovery/; $finpid &)
-godust=(gobuster --url http://$targetip --wordlist=/usr/share/wordlists/Seclist/DNS/Discovery/; $finpid &)
-fuffyfuf=(ffuf -u http://$targetip.htb/FUZZ -w /usr/share/wordlists/SecLists/Discovery/Web-Content/raft-large-words-lowercase.txt; $finpid & | grep "Status: 200" \| "Status: 301"))
+dirbust=(dirbuster --url http://$targetip --wordlist=/usr/share/wordlists/Seclist/Discovery/DNS $finpid &)
+feroxrust=(feroxbuster --url http://$targetip --wordlist=/usr/share/wordlists/Seclist/Discovery/DNS $finpid &)
+godust=(gobuster --url http://$targetip --wordlist=/usr/share/wordlists/Seclist/Discovery/DNS $finpid &)
+fuffyfuf=(ffuf -u http://$targetip.htb/FUZZ -w /usr/share/wordlists/SecLists/Discovery/DNS/ $finpid & | grep "Status: 200" \| "Status: 301"))
 #port 3306
 mysqqql=(mysql -u $wauser -p -h $targetip 2>/dev/null >> /tmp/mysql.$targetiptarget.ip.txt)
 
