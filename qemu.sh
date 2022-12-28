@@ -27,18 +27,15 @@
 #create .img spaceholder:
 #qemu-img create -f qcow2 kali.qcow2 30G
 
-#convert to .qcow2
-#qemu-img convert <img.iso> <img_name.qcow2
-
-#encrypt image: similiar to LUKS
-#encrypt.format <img.qcow2> 
 
 #run qemu:
 #./run-qemu -hda ./kali.qcow2 -boot d -cdrom /media/nfs/iso/kali-linux-1.0.5-i386.iso  -m 1024 -enable-kvm -usb
 
+#TODO:
+#encrypt image: similiar to LUKS
+#encrypt.format <img.qcow2> 
 #Kern testing!
 #https://www.qemu.org/docs/master/system/linuxboot.html
-
 # look into --sandbox
 
 #Alternative: https://hub.docker.com/u/kalilinux/
