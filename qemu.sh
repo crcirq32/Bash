@@ -5,6 +5,7 @@
 #https://www.qemu.org/
 #https://purplepalmdash.github.io/2013/12/12/kali-linux-in-qemu/
 #linux tips:: https://purplepalmdash.github.io/categories/linuxtips/
+#https://www.knowdef.com/post/install-qemu-on-ubuntu-20.04/
 #VIM spell check ": set spell spelllang=en_us"
 
 #update
