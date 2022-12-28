@@ -12,7 +12,7 @@
 #sudo apt-get update -y && sudo apt-get upgrade -y
 
 #add deps
-#sudo apt install libpixman-1-dev libcairo2-dev libpango1.0-dev libjpeg8-dev libgif-dev ninja-build meson flex bison gcc g++ git 
+#sudo apt install libpixman-1-dev libcairo2-dev libpango1.0-dev libjpeg8-dev libgif-dev ninja-build flex bison gcc g++ git make
 
 #dont use apt-get. install from source.
 #git clone https://gitlab.com/qemu-project/qemu.git
