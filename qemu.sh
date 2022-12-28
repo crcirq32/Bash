@@ -4,8 +4,8 @@
 #steps from https://www.cyberithub.com/how-to-install-qemu-on-ubuntu-20-04-lts-focal-fossa/
 #https://www.qemu.org/
 #https://purplepalmdash.github.io/2013/12/12/kali-linux-in-qemu/
-# lotta cooooooo linux tips:: https://purplepalmdash.github.io/categories/linuxtips/
-#: set spell spelllang=en_us
+#linux tips:: https://purplepalmdash.github.io/categories/linuxtips/
+#VIM spell check ": set spell spelllang=en_us"
 
 #update
 #sudo apt-get update -y && sudo apt-get upgrade -y
