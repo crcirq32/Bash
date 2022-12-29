@@ -21,5 +21,5 @@ pip install numpy matplotlib jupyter scipy requests graphviz
 echo $?
 sleep 15
 
-#start notebook
+#start notebook - visit localhost in browser to view pynotebook
 jupyter notebook --ip="127.0.0.1" --port=8888
