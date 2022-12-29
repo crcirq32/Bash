@@ -15,7 +15,7 @@ sudo apt-get install python3-pip python3-dev -y && -H pip3 install --upgrade pip
 #start py env
 && virtualenv jupyterenv && source jupyterenv/bin/activate && \
 
-#add pip libs to py env
+#add pip libs to py env. recommended to not use sudo w pip
 pip install numpy matplotlib jupyter scipy requests graphviz
 
 echo $?
