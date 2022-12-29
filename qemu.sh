@@ -28,9 +28,8 @@
 #create .img spaceholder:
 #qemu-img create -f qcow2 kali.qcow2 30G
 
-
 #run qemu:
-#./run-qemu -hda ./kali.qcow2 -boot d -cdrom /media/nfs/iso/kali-linux-1.0.5-i386.iso  -m 1024 -enable-kvm -usb
+#qemu-system-x86_64 -hda ~/Documents/kali-2022.qcow2 --enable-kvm -boot d -cdrom ./kali-linux-2022.4-live-amd64.iso -m 2048 -smp 2
 
 #TODO:
 #encrypt image: similiar to LUKS
