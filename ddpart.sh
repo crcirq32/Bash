@@ -13,9 +13,14 @@ sdb                     8:16   0   1.8T  0 disk
     └─vgubuntu-swap_1 253:2    0   976M  0 lvm   [SWAP]
     
 #in current partition(s), zip to save space.
-dd if=/dev/sdb* | bzip2 -9f >/tmp/current.img.bz2
+#dd if=/dev/sdb* | bzip2 -9f >/tmp/current.img.bz2
 
 #unzip
 
 #Wants: create new partition with my current one. 1.8TB is huge...
 dd if=current.img of=/dev/sda
+
+Update:
+dd does not work on multiple partitions.
+create new partitions then compress.
+Am i able to compress \| dd encrypted partitions? 
