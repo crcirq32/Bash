@@ -31,6 +31,9 @@
 #run qemu:
 #qemu-system-x86_64 -hda ~/Documents/kali-2022.qcow2 --enable-kvm -boot d -cdrom ./kali-linux-2022.4-live-amd64.iso -m 2048 -smp 2
 
+#setting up network in qemu
+#https://ahelpme.com/linux/howto-do-qemu-full-virtualization-with-bridged-networking/
+
 #TODO:
 #encrypt image: similiar to LUKS
 #encrypt.format <img.qcow2> 
