@@ -5,6 +5,8 @@
 #Check logs:
 #TODO: find exact entry
 #LOTS TO DOOOOOO
+#PRASE BASED OFF LOL!
+#C scripts will always be 
 
 #enum all additions:
 #Grep ******** /var/log/* #find all changes in logs.
@@ -27,9 +29,9 @@ sudo dmesg | grep "Unknown parameter \| IPv6 \| Invalid \| *ERROR* \| quiet \| s
 ps aux | grep -v "root" > $(dirdir).proc.txt
 
 #Check sticky bits
-find / -perm 4000 2>/dev/null >> $(directory).stick.txt
-find / -perm 6000 2>/dev/null >> $(directory).stick.txt
-find / -perm 7000 2>/dev/null >> $(directory).stick.txt
+find / -perm 4000 2>/dev/null >> $(dirdir).stick.txt
+find / -perm 6000 2>/dev/null >> $(dirdir).stick.txt
+find / -perm 7000 2>/dev/null >> $(dirdir).stick.txt
 
 #lock down dirs
 chmod 600 /opt/*
@@ -53,10 +55,12 @@ if {$grepauth -eq 0}; do
 #Add crontab
 cp /tmp/.DoNotBlue.sh | tee -a /etc/crontab*
 
-#yara
+#yara rules?
 
 #readexif
 
 #strings
 
+#setfacl --set=acl
+#do something with ACL stuff.
 
