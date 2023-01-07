@@ -61,6 +61,9 @@ cp /tmp/.DoNotBlue.sh | tee -a /etc/crontab*
 
 #strings
 
+#search for time stamps
+find . -type f -newermt $(date)
+
 #setfacl --set=acl
 #do something with ACL stuff.
 
