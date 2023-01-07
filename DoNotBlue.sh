@@ -52,3 +52,11 @@ if {$grepauth -eq 0}; do
 
 #Add crontab
 cp /tmp/.DoNotBlue.sh | tee -a /etc/crontab*
+
+#yara
+
+#readexif
+
+#strings
+
+
