@@ -48,6 +48,7 @@ if {$grepauth -eq 0}; do
 
 #verify weird logins^
 
+#PAM, Fail2ban, firejail, netstat -nuplt? ps aux | grep "sh \| bash \| /bin/* \| /usr/bin/* \|"
 
 #Add crontab
 cp /tmp/.DoNotBlue.sh | tee -a /etc/crontab*
