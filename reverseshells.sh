@@ -2,10 +2,8 @@
 
 ##############################################################
 #                       Reverse Shells                       #
-#     "10.0.0.1" to desired IP && "4242" to desired Port     #
 #            Validity of scripts are questionable:           #
 #                       Use at own risk                      #
-#               do not use for illegal activity              #
 ##############################################################
 
 # awk #
